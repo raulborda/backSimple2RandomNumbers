@@ -6,7 +6,8 @@ const sumRoutes = require('./routes/sumRoutes');
 const app = express();
 const PORT = process.env.PORT || 4000;
 
-//Morgan para registrar solicitudes y mostrar en consola que se ejecutó en POSTMAN
+//Con Morgan pueden registrar solicitudes y mostrar en consola lo 
+// que se ejecutó en POSTMAN :)
 app.use(morgan('dev'));
 app.use(randomRoutes);
 app.use(sumRoutes);

@@ -47,6 +47,20 @@ router.post('/sum', express.json(), (req, res) => {
     }
 });
 
+//REQUEST SUMA ALEATORIA (RANDOM SUM)
+router.get('/random-sum', async (req, res) => {
+  try {
+      const response = await fetch("http://localhost:4000/random");
+      const getNumbers = await response.json();
 
+      const suma = getNumbers.num1 + getNumbers.num2;
+
+      res.json({ suma });
+  } catch (error) {    
+      res
+        .status(500)
+        .json({ error: "Ha ocurrido un error al sumar los números" });
+  }
+});
 
 module.exports = router;
